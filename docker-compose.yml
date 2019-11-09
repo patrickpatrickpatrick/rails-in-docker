@@ -24,23 +24,6 @@ services:
       - "3000:3000"
     depends_on:
       - db
-  webpacker:
-    image: ${DOCKER_IMAGE_NAME-app}
-    env_file:
-      - '.env.dev'
-    command: ./bin/webpack-dev-server --inline true
-    volumes:
-      - .:/app:cached
-      # use cached bundle and node modules volume
-      - bundle:/bundle 
-      # put all the generated files into Docker volumes to avoid heavy disk operations on the host machine
-      - node_modules:/app/node_modules/
-      - packs:/app/public/packs
-      - rails_cache:/app/tmp/cache
-    ports:
-      - '3035:3035'
-    depends_on:
-    - web
 volumes:
   bundle:
   node_modules:
