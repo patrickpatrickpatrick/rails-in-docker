@@ -1,13 +1,14 @@
-# Rails in Docker
+# Rails in Docker with Webpacker
 
-This is a barebones installation of Rails 5.2 running in a Ruby 2.4.9 Docker container.
-The idea is that I can use this to rapidly spin up some Rails mini-projects for deliberate practice.
+This is an installation of Rails 5.2 running in a Ruby 2.4.9 Docker container.
+Webpacker has been added so I can experiment with javascript handling using webpack rather than asset pipeline.
 
-There are two branches:
+There are a few branches:
 
-1. Master - A simple rails 5.2 install
-2. webpacker - This has webpacker installed from the Gemfile so that I can see the changes in how javascript is handled
-3. cucumber-bdd - The rails 5.2 install with the addition of rspec, cucumber, factory-bot and database-cleaner for BDD testing. The setup follows the following [instruction from Semaphore](https://semaphoreci.com/community/tutorials/setting-up-a-bdd-stack-on-a-rails-5-application).
+1. Master - A Rails 5.2 install with webpacker and cucumber-bdd. This is a good starting point for spinning up functional rails apps with BDD
+2. plain-ror - A simple rails 5.2 install
+3. webpacker - This has webpacker installed from the Gemfile so that I can see the changes in how javascript is handled
+4. cucumber-bdd - The rails 5.2 install with the addition of rspec, cucumber, factory-bot and database-cleaner for BDD testing. The setup follows the following [instruction from Semaphore](https://semaphoreci.com/community/tutorials/setting-up-a-bdd-stack-on-a-rails-5-application).
 
 ## Initial Setup:
 
