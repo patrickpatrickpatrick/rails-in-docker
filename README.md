@@ -15,6 +15,17 @@ NB. I have changed the config/database.yml to have a unique db name so that I do
 
 I want to test whether polymorphic relationships are the way to go.
 
+### Console Commands
+
+- Enter rails console with `docker-compose run web rails c`
+- Create article and event either in console of browser
+- Assign article `a = Article.first`
+- Assign event `e = Event.first`
+- Create and assign an Article reference `ar = a.item_references.create!(item_unique_id: 'O12')`
+- Create and assign an Event reference `er = e.item_references.create!(item_unique_id: 'O12')`
+- Return article with `ar.item_referenceable`
+- Return all item_references for the article `a.item_references`
+
 ### Polymorphic Resources
 
 - [4 ways](https://medium.com/@adamlangsner/4-ways-to-model-polymorphic-relationships-in-rails-5-4c98101ed900)
