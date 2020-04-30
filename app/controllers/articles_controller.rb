@@ -5,6 +5,9 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @item_referenceable = @article
+    @item_references = @item_referenceable.item_references
+    @item_reference = ItemReference.new
   end
 
   def new

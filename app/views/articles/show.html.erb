@@ -3,3 +3,8 @@
 <%= simple_format @article.content %>
 
 <p><%= link_to "Back to Articles", articles_path %></p>
+
+<h2>Item references<h2>
+
+<%= render "item_references/references"%>
+<%= render "item_references/form"%>
