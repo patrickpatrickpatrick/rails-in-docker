@@ -3,14 +3,25 @@
 This is an installation of Rails 5.2 running in a Ruby 2.4.9 Docker container.
 Webpacker has been added so I can experiment with javascript handling using webpack rather than asset pipeline.
 
-There are a few branches:
+## Polymorphic Associations Experimentation
 
-1. Master - A Rails 5.2 install with webpacker and cucumber-bdd. This is a good starting point for spinning up functional rails apps with BDD
-2. plain-ror - A simple rails 5.2 install
-3. webpacker - This has webpacker installed from the Gemfile so that I can see the changes in how javascript is handled
-4. cucumber-bdd - The rails 5.2 install with the addition of rspec, cucumber, factory-bot and database-cleaner for BDD testing. The setup follows the following [instruction from Semaphore](https://semaphoreci.com/community/tutorials/setting-up-a-bdd-stack-on-a-rails-5-application).
+NB. I have changed the config/database.yml to have a unique db name so that I don't end up with conflicts between branch experiments.
 
-## Initial Setup:
+### The Challenge
+
+- I have multiple models such as article, event and so on.
+- Each may reference an item which may be an object a theme or a person.
+- I want to keep track of item references so I can say 'this item is referenced in this article and this event'
+
+I want to test whether polymorphic relationships are the way to go.
+
+### Polymorphic Resources
+
+- [4 ways](https://medium.com/@adamlangsner/4-ways-to-model-polymorphic-relationships-in-rails-5-4c98101ed900)
+- [Polymorphic join tables](https://aaronvb.com/articles/a-polymorphic-join-table.html)
+- [Polymorphic Rails Cast](http://railscasts.com/episodes/154-polymorphic-association-revised?view=comments)
+
+## Initial Setup
 
 - `docker-compose build`
 - `docker-compose up`
