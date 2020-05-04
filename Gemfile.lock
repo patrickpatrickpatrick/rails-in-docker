@@ -52,8 +52,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    archive-zip (0.12.0)
-      io-like (~> 0.3.0)
     arel (9.0.0)
     backports (3.15.0)
     bindex (0.8.1)
@@ -70,9 +68,6 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
-    chromedriver-helper (2.1.1)
-      archive-zip (~> 0.10)
-      nokogiri (~> 1.8)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -119,7 +114,6 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
-    io-like (0.3.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
     listen (3.1.5)
@@ -206,7 +200,7 @@ GEM
       rspec-support (~> 3.9.0)
     rspec-support (3.9.0)
     ruby_dep (1.5.0)
-    rubyzip (2.0.0)
+    rubyzip (1.3.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -218,7 +212,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    selenium-webdriver (3.142.6)
+    selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     spring (2.1.0)
@@ -247,6 +241,10 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webdrivers (3.9.4)
+      nokogiri (~> 1.6)
+      rubyzip (~> 1.0)
+      selenium-webdriver (~> 3.0)
     webpacker (4.2.2)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
@@ -263,8 +261,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
-  capybara (>= 2.15)
-  chromedriver-helper
+  capybara
   coffee-rails (~> 4.2)
   cucumber-rails
   database_cleaner
@@ -277,7 +274,6 @@ DEPENDENCIES
   rails-controller-testing
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
-  selenium-webdriver
   shoulda-matchers!
   spring
   spring-watcher-listen (~> 2.0.0)
@@ -285,6 +281,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  webdrivers (~> 3.0)
   webpacker (~> 4.x)
 
 RUBY VERSION
