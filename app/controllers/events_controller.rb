@@ -16,6 +16,9 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    @item_referenceable = @event
+    @item_references = @item_referenceable.item_references
+    @item_reference = ItemReference.new
   end
 
   def create
