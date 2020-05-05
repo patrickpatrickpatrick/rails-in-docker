@@ -19,6 +19,15 @@
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </div>
+
+  <h2>Item References</h2>
+
+  <%= f.fields_for :item_references do |ref| %>
+    <div>
+      <%= ref.text_area :item_unique_id %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
