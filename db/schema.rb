@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_165351) do
+ActiveRecord::Schema.define(version: 2020_05_05_105453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 2020_05_04_165351) do
     t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "item_references", force: :cascade do |t|
+    t.text "item_unique_id"
+    t.string "item_referenceable_type"
+    t.bigint "item_referenceable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_referenceable_type", "item_referenceable_id"], name: "idx_item_refs"
   end
 
 end
