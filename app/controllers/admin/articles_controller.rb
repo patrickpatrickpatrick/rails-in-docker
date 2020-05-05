@@ -6,6 +6,9 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def show
+    @item_referenceable = @article
+    @item_references = @item_referenceable.item_references
+    @item_reference = ItemReference.new
   end
 
   def new
@@ -13,6 +16,9 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def edit
+    @item_referenceable = @article
+    @item_references = @item_referenceable.item_references
+    @item_reference = ItemReference.new
   end
 
   def create
