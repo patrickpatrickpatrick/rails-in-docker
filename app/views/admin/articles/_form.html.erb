@@ -22,11 +22,7 @@
 
   <h2>Item References</h2>
 
-  <%= f.fields_for :item_references do |ref| %>
-    <div>
-      <%= ref.text_area :item_unique_id %>
-    </div>
-  <% end %>
+  <%= render 'admin/item_references/form', f: f  %>
 
   <div class="actions">
     <%= f.submit %>

@@ -5,7 +5,6 @@ Rails.application.routes.draw do
       resources :item_references
     end
     resources :events
-    get 'item_references/new'
   end
 
   root to: 'admin/articles#index'

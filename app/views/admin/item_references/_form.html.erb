@@ -1,19 +1,7 @@
-<%= form_for [:admin, @item_referenceable, @item_reference] do |f| %>
-  <% if @item_reference.errors.any? %>
-    <div class="error_messages">
-      <h2>Please correct the following errors.</h2>
-      <ul>
-      <% @item_reference.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <%= f.fields_for :item_references do |ref| %>
+    <div>
+      <%= ref.text_area :item_unique_id %>
+      <%= ref.check_box '_destroy' %>
+      <%= ref.label 'Delete' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.text_area :item_unique_id, rows: 1 %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

@@ -57,6 +57,7 @@ class Admin::ArticlesController < ApplicationController
                                       :content,
                                       item_references_attributes: [:item_unique_id,
                                                                    :id, :item_reference_id,
-                                                                   :item_reference_type])
+                                                                   :item_reference_type,
+                                                                   :_destroy])
     end
 end
