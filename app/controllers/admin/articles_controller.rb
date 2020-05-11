@@ -13,13 +13,14 @@ class Admin::ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    # @article.item_references.build(item_unique_id: "dummy")
     5.times { @article.item_references.build }
   end
 
   def edit
     @item_referenceable = @article
     @item_references = @item_referenceable.item_references
-    @item_reference = ItemReference.new
+    # @item_reference = ItemReference.new
     5.times { @article.item_references.build }
   end
 
@@ -53,11 +54,12 @@ class Admin::ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title,
-                                      :content,
-                                      item_references_attributes: [:item_unique_id,
-                                                                   :id, :item_reference_id,
-                                                                   :item_reference_type,
-                                                                   :_destroy])
+      params.require(:article).
+              permit(:title,
+                     :content,
+                     item_references_attributes: [:item_unique_id,
+                                                  :id, :item_reference_id,
+                                                  :item_reference_type,
+                                                  :_destroy])
     end
 end
