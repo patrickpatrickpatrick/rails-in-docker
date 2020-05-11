@@ -36,6 +36,7 @@ class Admin::ArticlesController < ApplicationController
   def update
     if @article.update(article_params)
       if item_reference_params
+        remove_item_reference_associations(@article, item_reference_params)
         create_item_reference_associations(@article, item_reference_params)
       end
       redirect_to admin_article_path(@article), notice: 'Article was successfully updated.' 
