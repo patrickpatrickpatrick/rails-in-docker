@@ -3,12 +3,15 @@
 This is an installation of Rails 5.2 running in a Ruby 2.4.9 Docker container.
 Webpacker has been added so I can experiment with javascript handling using webpack rather than asset pipeline.
 
-There are a few branches:
+## Polymorphic Namespaced Branch
 
-1. Master - A Rails 5.2 install with webpacker and cucumber-bdd. This is a good starting point for spinning up functional rails apps with BDD
-2. plain-ror - A simple rails 5.2 install
-3. webpacker - This has webpacker installed from the Gemfile so that I can see the changes in how javascript is handled
-4. cucumber-bdd - The rails 5.2 install with the addition of rspec, cucumber, factory-bot and database-cleaner for BDD testing. The setup follows the following [instruction from Semaphore](https://semaphoreci.com/community/tutorials/setting-up-a-bdd-stack-on-a-rails-5-application).
+This is a branch for experimenting with polymorphic associations. I've added in an admin namespace just to see the impact on nested resources and routing.
+
+I'm modelling Articles and Events both of which can reference an object or item which I am modelling as ItemReference. I have only implemented for Articles at the moment but could expand to cover Events etc.
+
+I have come across some validation issues with handling nested_attributes which I have outlined in this [SO question](https://stackoverflow.com/questions/61634666/validates-uniqueness-of-polymorphic-association-not-working-for-create-action-d).
+
+Navigate to `http://localhost:3006/admin/articles/` to get going
 
 ## Initial Setup:
 
