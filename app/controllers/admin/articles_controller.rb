@@ -1,5 +1,6 @@
 class Admin::ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  include ApplicationHelper
 
   def index
     @articles = Article.all
@@ -13,20 +14,19 @@ class Admin::ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    # @article.item_references.build(item_unique_id: "dummy")
-    5.times { @article.item_references.build }
   end
 
   def edit
     @item_referenceable = @article
     @item_references = @item_referenceable.item_references
-    # @item_reference = ItemReference.new
-    5.times { @article.item_references.build }
   end
 
   def create
     @article = Article.new(article_params)
     if @article.save
+      if item_reference_params
+        create_item_reference_associations(@article, item_reference_params)
+      end
       redirect_to admin_article_path(@article), notice: 'Article was successfully created.'
     else
       render :new
@@ -35,6 +35,9 @@ class Admin::ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
+      if item_reference_params
+        create_item_reference_associations(@article, item_reference_params)
+      end
       redirect_to admin_article_path(@article), notice: 'Article was successfully updated.' 
     else
       render :edit
@@ -56,10 +59,10 @@ class Admin::ArticlesController < ApplicationController
     def article_params
       params.require(:article).
               permit(:title,
-                     :content,
-                     item_references_attributes: [:item_unique_id,
-                                                  :id, :item_reference_id,
-                                                  :item_reference_type,
-                                                  :_destroy])
+                     :content)
+    end
+
+    def item_reference_params
+      params[:article][:list_of_item_refs]
     end
 end

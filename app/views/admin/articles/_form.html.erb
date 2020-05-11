@@ -20,9 +20,7 @@
     <%= f.text_area :content %>
   </div>
 
-  <h2>Item References</h2>
-
-  <%= render 'admin/item_references/form', f: f  %>
+  <%= render 'admin/shared/item_references', f: f  %>
 
   <div class="actions">
     <%= f.submit %>
