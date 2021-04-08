@@ -34,6 +34,8 @@ jobs:
         run: docker-compose run web rake db:create
       - name: add pa11y-ci to the stack
         run: docker-compose run web yarn global add pa11y-ci
+      - name: ls 
+        run: docker-compose run web ls node_modules/
       - name: run pa11y-ci!
-        run: docker-compose run web pa11y-ci
+        run: docker-compose run web node node_modules/pa11y-ci/bin/pa11y-ci.js
           
