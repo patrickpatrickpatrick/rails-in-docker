@@ -21,6 +21,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the stack
-        run: docker-compose up -d  
+        run: docker-compose up --build && docker-compose run web rake db:create && docker-compose run web yarn global add pa11y-ci 
         
           
