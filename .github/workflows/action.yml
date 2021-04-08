@@ -37,8 +37,6 @@ jobs:
           node-version: '12.x'
       - name: add pa11y-ci to the stack
         run: npm install -g pa11y-ci
-      - name: ls 
-        run: docker-compose run web ls node_modules/
       - uses: browser-actions/setup-chrome@latest
       - run: chrome --version        
       - name: run pa11y-ci!
