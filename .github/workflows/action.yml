@@ -32,6 +32,9 @@ jobs:
           time: '30s'
       - name: create db for the stack
         run: docker-compose run web rake db:create
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
       - name: add pa11y-ci to the stack
         run: npm install -g pa11y-ci
       - name: ls 
