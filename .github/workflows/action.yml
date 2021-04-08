@@ -34,4 +34,6 @@ jobs:
         run: docker-compose run web rake db:create
       - name: add pa11y-ci to the stack
         run: docker-compose run web yarn global add pa11y-ci
+      - name: run pa11y-ci!
+        run: pa11y-ci
           
