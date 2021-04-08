@@ -20,7 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build the stack
-        run: docker-compose up --build && docker-compose run web rake db:create && docker-compose run web yarn global add pa11y-ci 
-        
+      - name: Build the stack && run the stack
+        run: docker-compose up --build  
+      - name: create db for the stacl
+        run: docker-compose run web rake db:create
+      - name: add pa11y-ci to the stack
+        run: docker-compose run web yarn global add pa11y-ci
           
